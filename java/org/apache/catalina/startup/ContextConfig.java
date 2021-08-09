@@ -930,6 +930,11 @@ public class ContextConfig implements LifecycleListener {
 
     /**
      * Process a "init" event for this Context.
+     * 1、创建用于解析XML配置文件的ContextDigester对象。
+     * 2、读取默认的context.xml 配置文件，如果存在则解析它。
+     * 3、读取默认的Host配置文件，如果存在则解析它。
+     * 4、读取默认的Context自身的配置文件，如果存在则解析它。
+     * 5、设置Context的DocBase。
      */
     protected synchronized void init() {
         // Called from StandardContext.init()
