@@ -4928,6 +4928,15 @@ public class StandardContext extends ContainerBase
      *
      * @exception LifecycleException if this component detects a fatal error
      *  that prevents this component from being used
+     *  1、创建读取资源文件的对象。
+     *  2、创建ClassLoader对象。
+     *  3、设置应用的工作目录。
+     *  4、启动相关的辅助类，如logger,realm,resources等。
+     *  5、修改启动状态，通知感兴趣的观察者（Web应用的配置）。
+     *  6、子容器的初始化。
+     *  7、获取ServletContext并设置必要的参数。
+     *  8、初始化"load on  startup" 的Servlet.
+     *
      */
     @Override
     protected synchronized void startInternal() throws LifecycleException {
